@@ -1,4 +1,4 @@
-const board = [
+let board = [
   [0, 0, 0, 0, 0],
   [0, 0, 1, 0, 0],
   [0, 0, 1, 0, 0],
@@ -75,16 +75,15 @@ const livingNeighbors = (board, i, j) => {
 };
 
 const boardLoop = (currentBoard, count) => {
-  const newBoard = [[], [], [], [], []];
-
   if (count === 0) return;
-
+  const newBoard = [];
   for (let i = 0; i < currentBoard.length; i++) {
+    newBoard.push([]);
     for (let j = 0; j < currentBoard[i].length; j++) {
       const numberNeighbors = livingNeighbors(currentBoard, i, j);
 
       if (currentBoard[i][j] === 1) {
-        if (numberNeighbors < 2 || numberNeighbors > 4) {
+        if (numberNeighbors < 2 || numberNeighbors >= 4) {
           newBoard[i][j] = 0;
         } else if (numberNeighbors >= 2 && numberNeighbors < 4) {
           newBoard[i][j] = 1;
@@ -98,8 +97,16 @@ const boardLoop = (currentBoard, count) => {
       }
     }
   }
-  console.log(newBoard);
-  boardLoop(newBoard, count - 1);
+  board = newBoard;
+  return board;
+  // console.log(board);
+  // boardLoop(board, count - 1);
 };
 
+/* setInterval(() => {
+  // board = ;
+  console.log(boardLoop(board));
+}, 1000); */
+
 boardLoop(board, 5);
+module.exports = { livingNeighbors, boardLoop };
