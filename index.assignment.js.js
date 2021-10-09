@@ -8,8 +8,6 @@ const board = [
 
 console.table(board);
 
-let newBoard;
-
 const livingNeighbors = (theBoard, i, j) => {
   let neighbors = 0;
   const width = board[i].length - 1;
@@ -77,26 +75,30 @@ const livingNeighbors = (theBoard, i, j) => {
 };
 
 const boardLoop = (currentBoard) => {
-  newBoard = currentBoard.slice();
+  const newBoard = [[], [], [], [], []];
 
-  for (let i = 0; i < newBoard.length; i++) {
-    for (let j = 0; j < newBoard[i].length; j++) {
+  for (let i = 0; i < currentBoard.length; i++) {
+    for (let j = 0; j < currentBoard[i].length; j++) {
       const numberNeighbors = livingNeighbors(currentBoard, i, j);
 
       if (currentBoard[i][j] === 1) {
         if (numberNeighbors < 2 || numberNeighbors > 4) {
           newBoard[i][j] = 0;
-        } else if (numberNeighbors > 1 && numberNeighbors < 4) {
+        } else if (numberNeighbors >= 2 && numberNeighbors < 4) {
           newBoard[i][j] = 1;
         }
       } else if (currentBoard[i][j] === 0) {
         if (numberNeighbors === 3) {
           newBoard[i][j] = 1;
+        } else {
+          newBoard[i][j] = 0;
         }
       }
     }
   }
-  console.table(newBoard);
+  return newBoard;
 };
 
-boardLoop(board);
+const newBoard = boardLoop(board);
+
+console.table(newBoard);
