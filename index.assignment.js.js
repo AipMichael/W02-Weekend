@@ -20,7 +20,7 @@ const paintBoard = () => {
     for (let j = 0; j < 10; j += 1) {
       const cell = document.createElement("div");
       row.appendChild(cell);
-      cell.classList.add("gameBoard__cell", `${j}`);
+      cell.classList.add("gameBoard__cell", `${i}-${j}`);
     }
   }
 };
