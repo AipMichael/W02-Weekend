@@ -15,10 +15,12 @@ const paintBoard = () => {
   for (let i = 0; i < 10; i += 1) {
     const row = document.createElement("div");
     gameBoard.appendChild(row);
+    row.classList.add("gameBoard__row", `${i}`);
 
     for (let j = 0; j < 10; j += 1) {
       const cell = document.createElement("div");
       row.appendChild(cell);
+      cell.classList.add("gameBoard__cell", `${j}`);
     }
   }
 };

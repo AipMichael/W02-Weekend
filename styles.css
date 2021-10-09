@@ -1,9 +1,49 @@
 body {
-  background-color: black;
+  background-color: #000000;
   color: white;
   font-family: "Courier New", Courier, monospace;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+}
+
+h1 {
+  padding-bottom: 100px;
+  align-self: center;
+}
+section {
+  background-image: url("./joshua-rivera-usmhPmT5sj0-unsplash\ \(1\).jpg");
+  background-repeat: no repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+  background-color: chartreuse;
+}
+
+.gameBoard__row {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .gameBoard__cell {
   background-color: white;
+  flex-grow: 1;
+  border: solid 5px black;
 }
