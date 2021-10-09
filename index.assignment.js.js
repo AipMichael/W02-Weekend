@@ -8,6 +8,28 @@ let board = [
 
 console.table(board);
 
+const paintBoard = () => {
+  // const auxiliarNumber = 10;
+  const gameBoard = document.querySelector(".container");
+
+  for (let i = 0; i < 10; i += 1) {
+    const row = document.createElement("div");
+    gameBoard.appendChild(row);
+
+    for (let j = 0; j < 10; j += 1) {
+      const cell = document.createElement("div");
+      row.appendChild(cell);
+    }
+  }
+};
+
+paintBoard();
+
+/* 
+    haces un for y dentro creas div
+    2do loop, otro div dentro del 1ero
+  */
+
 const livingNeighbors = (board, i, j) => {
   let neighbors = 0;
   const width = board[i].length - 1;

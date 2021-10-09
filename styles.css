@@ -1,0 +1,9 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.gameBoard__cell {
+  background-color: white;
+}
