@@ -25,6 +25,10 @@ function center(board) {
 
 center(board);
 
+/* let width = board[i].length-1;
+let height = board.length-1;
+; */
+
 const neighboorCoordenates = {
   1: [board[i][j + 1], board[i + 1][j], board[i + 1][j + 1]],
   2: [board[i][j - 1], board[i + 1][j - 1], board[i + 1][j]],
