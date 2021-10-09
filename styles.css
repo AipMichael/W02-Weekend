@@ -1,0 +1,69 @@
+body {
+  background-color: #000000;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+}
+
+.skulls {
+  margin-top: 2vh;
+  background-image: url("./skulls.gif");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20vh;
+  height: 20vh;
+}
+
+h1 {
+  margin: 0 10vw;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  align-self: center;
+}
+section {
+  background-image: url("./joshua-rivera-usmhPmT5sj0-unsplash\ \(1\).jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+  background-image: url("./mario-devil.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.gameBoard__row {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.gameBoard__cell {
+  background-color: white;
+  flex-grow: 1;
+  border: solid 5px black;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 2vh;
+}
