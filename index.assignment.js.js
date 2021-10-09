@@ -1,4 +1,4 @@
-const board = [
+let board = [
   [0, 0, 0, 0, 0],
   [0, 0, 1, 0, 0],
   [0, 0, 1, 0, 0],
@@ -98,8 +98,15 @@ const boardLoop = (currentBoard, count) => {
       }
     }
   }
-  console.log(newBoard);
-  boardLoop(newBoard, count - 1);
+  board = newBoard;
+  return board;
+  console.log(board);
+  boardLoop(board, count - 1);
 };
+
+/* setInterval(() => {
+  // board = ;
+  console.log(boardLoop(board));
+}, 1000); */
 
 boardLoop(board, 5);
