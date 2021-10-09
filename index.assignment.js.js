@@ -2,7 +2,7 @@ let board = [
   [0, 0, 0, 0, 0],
   [0, 0, 1, 0, 0],
   [0, 0, 1, 0, 0],
-  [0, 1, 1, 1, 0],
+  [0, 0, 1, 0, 0],
   [0, 0, 0, 0, 0],
 ];
 
@@ -75,11 +75,10 @@ const livingNeighbors = (board, i, j) => {
 };
 
 const boardLoop = (currentBoard, count) => {
-  const newBoard = [[], [], [], [], []];
-
   if (count === 0) return;
-
+  const newBoard = [];
   for (let i = 0; i < currentBoard.length; i++) {
+    newBoard.push([]);
     for (let j = 0; j < currentBoard[i].length; j++) {
       const numberNeighbors = livingNeighbors(currentBoard, i, j);
 
@@ -99,9 +98,9 @@ const boardLoop = (currentBoard, count) => {
     }
   }
   board = newBoard;
-  // return board;
-  console.log(board);
-  boardLoop(board, count - 1);
+  return board;
+  // console.log(board);
+  // boardLoop(board, count - 1);
 };
 
 /* setInterval(() => {
@@ -110,4 +109,4 @@ const boardLoop = (currentBoard, count) => {
 }, 1000); */
 
 boardLoop(board, 5);
-module.exports = { livingNeighbors };
+module.exports = { livingNeighbors, boardLoop };
