@@ -110,3 +110,4 @@ const boardLoop = (currentBoard, count) => {
 }, 1000); */
 
 boardLoop(board, 5);
+module.exports = { livingNeighbors };
