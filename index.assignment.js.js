@@ -2,7 +2,7 @@ let board = [
   [0, 0, 0, 0, 0],
   [0, 0, 1, 0, 0],
   [0, 0, 1, 0, 0],
-  [0, 0, 1, 0, 0],
+  [0, 1, 1, 1, 0],
   [0, 0, 0, 0, 0],
 ];
 
@@ -84,7 +84,7 @@ const boardLoop = (currentBoard, count) => {
       const numberNeighbors = livingNeighbors(currentBoard, i, j);
 
       if (currentBoard[i][j] === 1) {
-        if (numberNeighbors < 2 || numberNeighbors > 4) {
+        if (numberNeighbors < 2 || numberNeighbors >= 4) {
           newBoard[i][j] = 0;
         } else if (numberNeighbors >= 2 && numberNeighbors < 4) {
           newBoard[i][j] = 1;
@@ -99,7 +99,7 @@ const boardLoop = (currentBoard, count) => {
     }
   }
   board = newBoard;
-  return board;
+  // return board;
   console.log(board);
   boardLoop(board, count - 1);
 };
