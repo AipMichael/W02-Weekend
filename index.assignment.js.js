@@ -21,13 +21,12 @@ let newBoard;
 let i = 0;
 let j = 0;
 
-// a terminar. queremos que nos devuelva un número: el número de vecinos vivos.
 
-/* let width = board[i].length-1;
-let height = board.length-1; */
 
-const liveNeighbors = (theBoard, a, b) => {
+const liveNeighbors = (theBoard, i, j) => {
   const neighbors = 0;
+  const width = board[i].length-1;
+  const height = board.length-1; 
 
   if (i === 0 && j === 0) {
     // case 1 (corner left top)
@@ -49,28 +48,36 @@ const liveNeighbors = (theBoard, a, b) => {
     if (board[i][j + 1]) neighbors++, 
     if (board[i - 1][j + 1]) neighbors++, 
     if (board[i - 1][j]) neighbors++,
-  } else if (i>0 && i<height && j===0){
+
+  } else if (i > 0 && i < height && j === 0){
+
     // case 5 (left line) 
     if (board[i - 1][j]) neighbors++,
     if (board[i - 1][j + 1]) neighbors++,
     if (board[i][j + 1]) neighbors++,
     if (board[i + 1][j]) neighbors++,
     if (board[i + 1][j + 1]) neighbors++,
-  } else if (i === 0 && (j>0 && j<width)){ 
+
+  } else if (i === 0 && (j > 0 && j < width)){ 
+
     // case 6 (top line)
     if (board[i][j - 1]) neighbors++,
     if (board[i][j + 1]) neighbors++,
     if (board[i + 1][j - 1]) neighbors++,
     if (board[i + 1][j]) neighbors++,
     if (board[i + 1][j + 1]) neighbors++
-  } else if (i>0 && i<height && j===width){ 
+
+  } else if (i > 0 && i < height && j === width){ 
+
     // case 7 (right line)
     if (board[i - 1][j]) neighbors++,
     if (board[i - 1][j-1]) neighbors++,
     if (board[i][j - 1]) neighbors++,
     if (board[i + 1][j - 1]) neighbors++,
     if (board[i + 1][j]) neighbors++,
-  } else if (i===height && (j>0 && j<width)){ 
+
+  } else if (i === height && (j > 0 && j < width)){ 
+
     // case 8 (bottom line)
     if (board[i][j - 1]) neighbors++,
     if (board[i - 1][j - 1]) neighbors++,
@@ -78,8 +85,6 @@ const liveNeighbors = (theBoard, a, b) => {
     if (board[i - 1][j + 1]) neighbors++,
     if (board[i + 1][j + 1]) neighbors++,
   } else {
-
-
     if (board[i - 1][j - 1]) neighbors++,
     if (board[i - 1][j]) neighbors++,
     if (board[i - 1][j + 1]) neighbors++,
