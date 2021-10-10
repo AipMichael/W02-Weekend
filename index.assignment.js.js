@@ -8,22 +8,45 @@ let board = [
 
 console.table(board);
 
-const paintBoard = () => {
-  // const auxiliarNumber = 10;
-  const gameBoard = document.querySelector(".container");
+const gameBoard = document.querySelector(".container");
+console.log(gameBoard);
 
-  for (let i = 0; i < 10; i += 1) {
+// creating the div board
+const paintBoard = () => {
+  const auxiliarNumber = 10;
+  const subContainer = document.createElement("div");
+  subContainer.className = "gameBoard__subBoard";
+  gameBoard.appendChild(subContainer);
+
+  for (let i = 0; i < auxiliarNumber; i += 1) {
     const row = document.createElement("div");
-    gameBoard.appendChild(row);
+    subContainer.appendChild(row);
     row.classList.add("gameBoard__row", `${i}`);
 
-    for (let j = 0; j < 10; j += 1) {
+    for (let j = 0; j < auxiliarNumber; j += 1) {
       const cell = document.createElement("div");
       row.appendChild(cell);
       cell.classList.add("gameBoard__cell", `${i}-${j}`);
+      cell.style.backgroundColor = "white";
+      cell.onclick = bringAutomation;
     }
   }
 };
+
+// function to give automation power to cells
+function bringAutomation() {
+  const index = this.id.split("-");
+  const row = index[0];
+  const file = index[1];
+
+  if (this.style.backgroundColor === "white") {
+    this.style.backgroundColor = "transparent";
+    boad[row][file] = 1;
+  } else {
+    this.style.backgroundColor = "white";
+    board[row][file] = 0;
+  }
+}
 
 paintBoard();
 
