@@ -1,11 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
   background-color: #000000;
   color: white;
   font-family: "Courier New", Courier, monospace;
   width: 100vw;
   height: 100vh;
-  box-sizing: border-box;
    animation: blinkingBackground 2s infinite; 
+   margin: 0;
 }
 
 
@@ -104,4 +108,9 @@ footer {
   display: flex;
   justify-content: center;
   align-content: center;
+ }
+
+ .evil-message {
+   color: red;
+   font-weight: bolder;
  }
