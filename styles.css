@@ -5,7 +5,16 @@ body {
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
+   animation: blinkingBackground 2s infinite; 
 }
+
+
+ 	@keyframes blinkingBackground{
+		50%		{ background-color: black,;
+            color: white;}
+		100%	        { background-color: white;
+    color: black}
+	} 
 
 header {
   display: flex;
@@ -14,24 +23,25 @@ header {
 }
 
 .skulls {
-  margin-top: 2vh;
-  background-image: url("./skulls.gif");
+  
+  background-image: url("./images/skulls.gif");
   background-repeat: no-repeat;
   background-size: contain;
   width: 20vh;
-  height: 20vh;
+  height: 15vh;
 }
 
 h1 {
   margin: 0 10vw;
-  padding-top: 5vh;
+  padding-top: 3vh;
   padding-bottom: 5vh;
   align-self: center;
+  justify-self: center;
 }
 .contain {
-  background-image: url("./joshua-rivera-usmhPmT5sj0-unsplash\ \(1\).jpg");
-  background-repeat: repeat;
-  background-size: contain;
+  background-image: url("./images/joshua-rivera-usmhPmT5sj0.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,7 +59,7 @@ h1 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 500px;
+  width: 500px; 
   height: 500px;
   background-image: url("./mario-devil.png");
   background-repeat: no-repeat;
@@ -69,19 +79,29 @@ h1 {
   border: solid 5px black;
 } 
 
-.gameBoard__cell:hover {
-  background-color: transparent;
-}
 .button-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  padding-top: 2vh;
+  
+}
+
+.button-section__item{
+  margin: 0.3rem;
+  /* padding: 0.5rem 1.6rem; */
+  border: 0;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.3rem;
+  cursor: pointer;
 }
 
 footer {
   display: flex;
   justify-content: center;
   align-content: center;
-  padding-top: 1vh;
-}
+ }
