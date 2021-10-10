@@ -27,11 +27,7 @@ const paintBoard = () => {
 
 paintBoard();
 
-/* 
-    haces un for y dentro creas div
-    2do loop, otro div dentro del 1ero
-  */
-
+// count number of neightbors alive
 const livingNeighbors = (board, i, j) => {
   let neighbors = 0;
   const width = board[i].length - 1;
@@ -98,6 +94,7 @@ const livingNeighbors = (board, i, j) => {
   return neighbors;
 };
 
+// change the matrix - main function
 const boardLoop = (currentBoard, count) => {
   if (count === 0) return;
   const newBoard = [];
@@ -128,7 +125,7 @@ const boardLoop = (currentBoard, count) => {
 };
 
 /* setInterval(() => {
-  // board = ;
+ 
   console.log(boardLoop(board));
 }, 1000); */
 

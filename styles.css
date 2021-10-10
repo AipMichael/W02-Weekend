@@ -60,6 +60,10 @@ section {
   flex-grow: 1;
   border: solid 5px black;
 }
+
+.gameBoard__cell:hover {
+  background-color: transparent;
+}
 .button-section {
   display: flex;
   justify-content: center;
