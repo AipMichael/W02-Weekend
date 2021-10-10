@@ -161,9 +161,14 @@ const boardLoop = (currentBoard, count) => {
   // boardLoop(board, count - 1);
 };
 
+let itinerate;
 // sets the interval for reppeating the function & calls the function
 function play() {
-  const cuack = setInterval(() => boardLoop(board, 30), 1000);
+  itinerate = setInterval(() => boardLoop(board, 30), 1000);
+}
+
+function stop() {
+  clearInterval(itinerate);
 }
 
 // boardLoop(board, 5); --> do not need it now.
