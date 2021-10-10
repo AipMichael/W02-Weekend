@@ -28,7 +28,7 @@ h1 {
   padding-bottom: 5vh;
   align-self: center;
 }
-section {
+.contain {
   background-image: url("./joshua-rivera-usmhPmT5sj0-unsplash\ \(1\).jpg");
   background-repeat: repeat;
   background-size: contain;
@@ -38,6 +38,14 @@ section {
 }
 
 .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+º}
+
+.gameBoard__subBoard {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -59,6 +67,10 @@ section {
   background-color: white;
   flex-grow: 1;
   border: solid 5px black;
+} 
+
+.gameBoard__cell:hover {
+  background-color: transparent;
 }
 .button-section {
   display: flex;
@@ -71,5 +83,5 @@ footer {
   display: flex;
   justify-content: center;
   align-content: center;
-  padding-top: 2vh;
+  padding-top: 1vh;
 }

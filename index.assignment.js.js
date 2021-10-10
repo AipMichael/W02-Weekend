@@ -1,37 +1,63 @@
 let board = [
-  [0, 0, 0, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
 console.table(board);
 
+const auxiliarNumber = 10;
+const gameBoard = document.querySelector(".container");
+console.log(gameBoard);
+
+// creating the div board
 const paintBoard = () => {
-  // const auxiliarNumber = 10;
-  const gameBoard = document.querySelector(".container");
+  const subContainer = document.createElement("div");
+  subContainer.className = "gameBoard__subBoard";
+  gameBoard.appendChild(subContainer);
 
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < auxiliarNumber; i += 1) {
     const row = document.createElement("div");
-    gameBoard.appendChild(row);
-    row.classList.add("gameBoard__row", `${i}`);
+    subContainer.appendChild(row);
+    row.className = "gameBoard__row";
+    row.id = `${i}`;
 
-    for (let j = 0; j < 10; j += 1) {
+    for (let j = 0; j < auxiliarNumber; j += 1) {
       const cell = document.createElement("div");
       row.appendChild(cell);
-      cell.classList.add("gameBoard__cell", `${i}-${j}`);
+      cell.className = "gameBoard__cell";
+      cell.id = `${i}-${j}`;
+      cell.style.backgroundColor = "white";
+      cell.onclick = bringAutomation;
     }
   }
 };
 
+// function to make cells respond to click at beginning. NEED TO CHANGE NAME
+function bringAutomation() {
+  const index = this.id.split("-");
+  const row = index[0];
+  const file = index[1];
+
+  if (this.style.backgroundColor === "white") {
+    this.style.backgroundColor = "transparent";
+    board[row][file] = 1;
+  } else {
+    this.style.backgroundColor = "white";
+    board[row][file] = 0;
+  }
+}
+
 paintBoard();
 
-/* 
-    haces un for y dentro creas div
-    2do loop, otro div dentro del 1ero
-  */
-
+// count number of neightbors alive
 const livingNeighbors = (board, i, j) => {
   let neighbors = 0;
   const width = board[i].length - 1;
@@ -98,7 +124,9 @@ const livingNeighbors = (board, i, j) => {
   return neighbors;
 };
 
+// change the matrix - main function
 const boardLoop = (currentBoard, count) => {
+  console.log("cuack");
   if (count === 0) return;
   const newBoard = [];
   for (let i = 0; i < currentBoard.length; i++) {
@@ -109,14 +137,20 @@ const boardLoop = (currentBoard, count) => {
       if (currentBoard[i][j] === 1) {
         if (numberNeighbors < 2 || numberNeighbors >= 4) {
           newBoard[i][j] = 0;
+          document.getElementById(`${i}-${j}`).style.backgroundColor = "white";
         } else if (numberNeighbors >= 2 && numberNeighbors < 4) {
           newBoard[i][j] = 1;
+          document.getElementById(`${i}-${j}`).style.backgroundColor =
+            "transparent";
         }
       } else if (currentBoard[i][j] === 0) {
         if (numberNeighbors === 3) {
           newBoard[i][j] = 1;
+          document.getElementById(`${i}-${j}`).style.backgroundColor =
+            "transparent";
         } else {
           newBoard[i][j] = 0;
+          document.getElementById(`${i}-${j}`).style.backgroundColor = "white";
         }
       }
     }
@@ -127,10 +161,10 @@ const boardLoop = (currentBoard, count) => {
   // boardLoop(board, count - 1);
 };
 
-/* setInterval(() => {
-  // board = ;
-  console.log(boardLoop(board));
-}, 1000); */
+// sets the interval for reppeating the function & calls the function
+function play() {
+  const cuack = setInterval(() => boardLoop(board, 30), 1000);
+}
 
-boardLoop(board, 5);
-module.exports = { livingNeighbors, boardLoop };
+// boardLoop(board, 5); --> do not need it now.
+//  module.exports = { livingNeighbors, boardLoop };
