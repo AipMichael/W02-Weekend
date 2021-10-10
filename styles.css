@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -8,17 +8,20 @@ body {
   font-family: "Courier New", Courier, monospace;
   width: 100vw;
   height: 100vh;
-   animation: blinkingBackground 2s infinite; 
-   margin: 0;
+  animation: blinkingBackground 2s infinite;
+  margin: 0;
 }
 
-
- 	@keyframes blinkingBackground{
-		50%		{ background-color: black,;
-            color: white;}
-		100%	        { background-color: white;
-    color: black}
-	} 
+@keyframes blinkingBackground {
+  50% {
+    background-color: black;
+    color: white;
+  }
+  100% {
+    background-color: white;
+    color: black;
+  }
+}
 
 header {
   display: flex;
@@ -27,7 +30,6 @@ header {
 }
 
 .skulls {
-  
   background-image: url("./images/skulls.gif");
   background-repeat: no-repeat;
   background-size: contain;
@@ -57,13 +59,13 @@ h1 {
   flex-wrap: wrap;
   width: 500px;
   height: 500px;
-º}
+}
 
 .gameBoard__subBoard {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 500px; 
+  width: 500px;
   height: 500px;
   background-image: url("./mario-devil.png");
   background-repeat: no-repeat;
@@ -81,17 +83,16 @@ h1 {
   background-color: white;
   flex-grow: 1;
   border: solid 5px black;
-} 
+}
 
 .button-section {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 2vh;
-  
 }
 
-.button-section__item{
+.button-section__item {
   margin: 0.3rem;
   /* padding: 0.5rem 1.6rem; */
   border: 0;
@@ -99,7 +100,7 @@ h1 {
   background-color: white;
   color: black;
   font-weight: bold;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 1.3rem;
   cursor: pointer;
 }
@@ -108,9 +109,9 @@ footer {
   display: flex;
   justify-content: center;
   align-content: center;
- }
+}
 
- .evil-message {
-   color: red;
-   font-weight: bolder;
- }
+.evil-message {
+  color: red;
+  font-weight: bolder;
+}
