@@ -14,12 +14,12 @@ body {
 
 @keyframes blinkingBackground {
   50% {
-    background-color: black;
-    color: white;
-  }
-  100% {
     background-color: white;
     color: black;
+  }
+  100% {
+    background-color: black;
+    color: white;
   }
 }
 
